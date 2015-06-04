@@ -1,0 +1,12 @@
+<br />
+<div class="leftside">
+    <ul class="pager">
+        <% if (!isFirstPage) { %>
+        <li><a title="上一页" href="?p=<%= page-1 %>">上一页</a></li>
+        <% } %>
+
+        <% if (!isLastPage) { %>
+        <li><a title="下一页" href="?p=<%= page+1 %>">下一页</a></li>
+        <% } %>
+    </ul>
+</div>

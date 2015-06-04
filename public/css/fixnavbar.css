@@ -1,0 +1,78 @@
+/* 通用 */
+html,body {height: 100%;}
+a{color: #555;}
+a:hover{color: #3498DB;text-decoration: none;}
+h3, .h3{margin-top: 10px;}
+h4, .h4 {font-weight: bold; }
+/* 页头 */
+.logo{padding: 10px 5px 5px 25px;}
+.navbar{margin-bottom: 0;border-radius: 0px;}
+.navbar-brand>img{width: 30px;height: 30px;}
+/* 中间内容 */
+.wrap {min-height: 100%;height: auto;margin: 0 auto -60px;padding: 0 0 60px;background-color: #fff;}
+.wrap > .container {background-color: #fff;}
+/* 左侧正文 */
+.left-content{padding-left: 15px;}
+.content-header {margin: 40px 0 0 10px;}
+.content-header > .h4 a{color: #555;}
+.content-header > .h4 a:hover {color: #3498DB;text-decoration: underline;}
+.addtion{color: #999999;}
+.addtion > a{background-color: #DDFFFF;color: #3498DB;padding: 2px 5px 2px 5px;border-radius: 2px;}
+.addtion > a:hover{background-color: #3498DB; color: #fff;text-decoration: none;}
+.tags {float:right;display: inline;}
+/* 右侧边栏 */
+.sidebox {margin-top: 30px;}
+.sidebox>span{line-height: 1.2;}
+.list-overhidden > li{height: 30px; overflow:hidden;}
+.list-overhidden > li a{color: #555;}
+.list-overhidden > li a:hover{color: #3498DB;text-decoration: underline;}
+.page-header{border :none;margin:0;}
+.line-distance li{line-height: 30px;}
+.tag{padding:0 8px;display:inline-block;background-color: #EEFFFF;color: #3498DB;border-radius: 2px;font-size: 13px;line-height: 22px;}
+.tag:hover {background-color: #3498DB; color: #fff;text-decoration: none;}
+.tagPopup {margin: 0 5px 5px 0;display:inline-block;}
+/* 页脚 */
+.footer {height: auto;background-color: #ffffff;font-size:12px; border-top: 2px solid #ddd;}
+.footer > .container {padding-top: 15px; padding-left: 40px;padding-right: 15px; color: #555;}
+.footer .container .text-muted {margin: 20px 0;}
+.env-info{vertical-align: bottom;}
+#gotoTop{
+    display:none;position:fixed;bottom:10%;right:5%;cursor:pointer;margin-top:-50px;width:48px;height:48px;
+    background: url('/img/gotop_simple_48.png');
+}
+#gotoTop{ _position:absolute;_top:expression(documentElement.scrollTop + documentElement.clientHeight * 3/4 + "px")}
+/* 字体 */
+.font-12 {font-size: 12px;}
+/* 链接样式 */
+.link{color: #999999;}
+.link:hover{color: #3498DB;text-decoration: underline;}
+/* 文章页 */
+.content{color: #666;line-height: 1.72222;}
+.font-overhidden {height: 21px; width: 230px; overflow: hidden;display: inline-block;}
+.article-header {margin-bottom: 30px;}
+.article-content {margin-left: 20px;}
+/* 标签页 */
+.tag-time{width: 80px;display: inline-block;}
+@media (min-width: 1200px) {
+    .leftside{width: 768px;}
+    .col-md-8{width: 768px;overflow: hidden;line-height:1.777;}
+    .col-md-4{width: 340px;}
+    .container>.navbar-header, .container>.navbar-collapse, .list-unstyled{margin-left: 10px;}
+}
+@media (max-width: 768px) {
+    .logo{padding: 0;}
+    .navbar-brand>img{width: 30px;height: 30px;margin: 10px 5px 5px 0px;}
+    .navbar-right{margin-right: 0px;}
+    .container>.navbar-header{margin:0 -15px 0 0;}
+    .wrap > .container{border:none;}
+    .col-md-8,.col-xs-12{padding:0;}
+    .navbar-brand{padding:0;}
+    .navbar-brand > h1{margin:0;}
+    .content-header{margin:0;padding:0;}
+    .tags {float:none;display: inline;}
+    .col-md-4{width: 100%;overflow: hidden;}
+    .col-md-8{width: 100%;overflow: hidden;}
+    #gotoTop{display:none;}
+    .footer > .container {padding-left: 15px;}
+}
+

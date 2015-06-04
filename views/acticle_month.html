@@ -1,0 +1,35 @@
+<%- include header.html %>
+<div class="container" >
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <% posts.forEach(function (post, index) { %>
+            <div class="content-header left-content">
+                <h1 class="h4"><b><a href="/p/<%= post._id %>" title="<%= post.title %>"><%= post.title %></a></b></h1>
+                <p>
+                    <span class="addtion font-date"><%= post.time.day %></span>&nbsp;<span class="addtion font-12">由</span> <a class="link font-12" href="/u/<%=post.name%>" ><%= post.name %></a>
+                    <span class="tags">
+                    <% if(post.tags){ %>
+                    <span class="addtion font-12"></span>
+                    <span class=" addtion">
+                    <% post.tags.forEach(function (tag, index) { %>
+                    <% if (tag) {
+                        if(index == 0){
+                    %>
+                    <a class="link font-12" href="/tags/<%= tag %>" title="<%= tag %>相关的文章"><%= tag %></a>
+                    <% }else{ %>
+                    <a class="link font-12" href="/tags/<%= tag %>" title="<%= tag %>相关的文章"><%= tag %></a>
+			        <%} } %>
+                    <% }); %>
+                    </span>
+                    <% }%>
+                    &nbsp;&nbsp;<a class="link" href="/p/<%= post._id %>"><span class="font-12">阅读</span><span class="font-12">(<%= post.pv %>)</span></a>&nbsp;&nbsp;
+		            <a class="link" href="/p/<%=post._id%>"><span class="ds-thread-count font-12" data-thread-key="<%=post._id%>" data-count-type="comments"></span></a>
+                    </span>
+                </p>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+<%- include paging.html %>
+<%- include footer.html %>

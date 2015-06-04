@@ -1,0 +1,71 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title> <%= title %> - 搞起博客 gaoqixhb.com　 </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta property="wb:webmaster" content="7f0d2e93ac57e213" />
+    <meta name="referrer" content="always">
+	<meta name="shenma-site-verification" content="4ad4d8d16851e7fd3f067ec54eba8c72" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="搞起博客是分享、讨论、交流前后端技术或者个人体会、经验的博客平台。" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="/rss"/>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="http://static.gaoqixhb.com/common.min.css" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand logo" href="/"><img title="搞起博客" src="http://static.gaoqixhb.com/logo.png" /></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a title="首页" href="/" target="_blank">首页</a></li>
+                    <li><a title="JavaScript" href="/tags/javascript" target="_blank">JavaScript</a></li>
+                    <li><a title="Node.js" href="/tags/nodejs" target="_blank">Node.js</a></li>
+                    <li><a title="Android" href="/tags/android" target="_blank">Android</a></li>
+                    <li><a title="系列文章" href="/series" target="_blank">系列文章</a></li>
+                    <li><a title="在线工具" href="/tools" target="_blank">在线工具</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if (user) { %>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=user.name%><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a title="发表" href="/post"><span class="glyphicon glyphicon-pencil"></span>　发表文章</a></li>
+                            <li class="divider"></li>
+                            <li><a title="发表" href="/newSeries"><span class="glyphicon glyphicon-th-list"></span>　创建系列</a></li>
+                            <li class="divider"></li>
+                            <li><a title="登出" href="/logout"><span class="glyphicon glyphicon-off"></span>　登　　出</a></li>
+                        </ul>
+                    </li>
+                    <% } else { %>
+                    <li><a title="登录" href="#" data-toggle="modal" data-target="#login" >登录</a></li>
+                    <% } %>
+                    <li>
+                        <form class="navbar-form navbar-right" role="form" action="/search" method="GET">
+                            <div class="form-group">
+                                <input type="text" name="keyword" placeholder="搜索文章" class="form-control" />
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+<div class="wrap">
+
+

@@ -1,0 +1,30 @@
+<%- include header.html %>
+<div class="container">
+<form method="post" action="/doPost">
+  <label >标题</label>
+  <input type="text" name="title" class="form-control" /><br />
+  <label >标签</label>
+  <div class="row">
+      <div class=" col-md-4"><input type="text" name="tag1" class="form-control" /></div>
+      <div class=" col-md-4"><input type="text" class="form-control" name="tag2" /></div>
+      <div class=" col-md-4"><input type="text" class="form-control" name="tag3" /></div>
+  </div>
+  <label >正文</label>
+  <textarea id="kindeditor" name="post" class="form-control" rows="20" cols="100"></textarea><br />
+  <input type="submit" class="btn btn-info" value="发表" />
+</form>
+</div>
+<br/>
+<br/>
+<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="/kindEditor/kindeditor-all-min.js"></script>
+<script src="/kindEditor/lang/zh_CN.js"></script>
+<script>
+    var editor;
+    KindEditor.ready(function(K) {
+        window.editor = K.create('#kindeditor',{
+            uploadJson : '/doUpload'
+        });
+    });
+</script>

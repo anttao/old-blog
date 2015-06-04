@@ -1,0 +1,32 @@
+<%- include header.html %>
+<div class="container">
+    <div class="row left-content">
+        <div class="col-xs-12 col-md-8">
+            <div class="page-header boxheader">
+                <h4>没有我要找的系列文章？<a href="/newSeries" class="btn btn-primary">我要创建</a></h4>
+            </div>
+            <ul class="list-unstyled">
+                <%
+                 if(series && series.length > 0){
+                   series.forEach(function (s, index) { %>
+                <li>
+                    <h1 class="h4">
+                        <b><a href="/series/<%= s._id %>" title="<%= s.name %>"><%= s.name %></a></b>　　　
+                        <small><span class="addtion"><%= s.createtime.day %></span>　　　<span class="">创建人</span>&nbsp;&nbsp;<a href="/u/<%=s.author%>" target="_blank"><%= s.author %></a></small>
+                    </h1>
+                </li>
+                <% });
+                }else {
+                %>
+                <li>
+                    <h3><b>暂时还没有系列文章,快去<a href="/newSeries" class="btn btn-primary btn-xs"><b>创建</b></a>第一个吧</b></h3>
+                </li>
+                <%
+                }
+                %>
+            </ul>
+        </div>
+    </div>
+</div>
+<%- include paging.html %>
+<%- include footer.html %>

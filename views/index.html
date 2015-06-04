@@ -1,0 +1,79 @@
+<%- include header.html %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <% posts.forEach(function (post, index) { %>
+              <div class="content-header left-content">
+                  <h1 class="h4"><b><a href="/p/<%= post._id %>" target="_blank"><%= post.title %></a></b></h1>
+                  <p class="content"><%- post.post%></p>
+                  <p >
+                      <a class="link font-12" href="/u/<%=post.name%>" ><%= post.name %></a>&nbsp;<span class="addtion font-12"><%= post.time %></span>
+                      <span class="tags">
+                      <% if(post.tags){ %>
+                      <span class=" addtion">
+                      <% post.tags.forEach(function (tag, index) { %>
+                      <% if (tag) {
+			                if(index == 0){
+			          %>
+                      <a class="link font-12" href="/tags/<%= tag %>" title="<%= tag %>相关的文章"><%= tag %></a>
+                      <% }else{ %>
+			          <a class="link font-12" href="/tags/<%= tag %>" title="<%= tag %>相关的文章"><%= tag %></a>
+			          <%} } %>
+                      <% }); %>
+                      </span>
+                      <% }%>
+                      &nbsp;&nbsp;<a class="link" href="/p/<%= post._id %>"><span class="font-12">阅读</span><span class="font-12">(<%= post.pv %>)</span></a>&nbsp;&nbsp;
+		              <a class="link" href="/p/<%=post._id%>#comment" title="《<%=post.title%>》上的评论"><span class="ds-thread-count font-12" data-thread-key="<%=post._id%>" data-count-type="comments"></span></a>
+                      </span>
+                  </p>
+              </div>
+            <% }); %>
+            <%- include paging.html %>
+        </div>
+	    <div class="col-xs-6 col-md-4 sidebox">
+            <div class="page-header boxheader">
+                <h4>热门文章</h4>
+            </div>
+            <ul class="list-unstyled line-distance list-overhidden">
+            <%  hots.forEach(function(hot, index){%>
+                <li><a target='_blank' href="/p/<%=hot._id%>" title="<%=hot.title%>"><font size="2px"><%=hot.title%></font></a></li>
+            <% }); %>
+            </ul>
+            <div class="page-header boxheader">
+                <h4>标签云</h4>
+            </div>
+            <%
+                tags.forEach(function(tag, index){
+            %>
+                <span class="tagPopup"><a class="tag" target='_blank' href="/tags/<%=tag%>" title="<%=tag%>"><%=tag%></a></span>
+            <% }); %>
+            <div class="page-header boxheader">
+                <h4>归档</h4>
+            </div>
+            <ul id="tags" class="list-unstyled line-distance">
+            <%
+            archive.year.forEach(function(y, index){
+                archive.month.forEach(function(d, index){
+                    if(d.year == y){
+                    %>
+                    <li><a target='_blank' href="/arc/<%=d.month%>" title="<%=d.month%>的文章"><font size="3px"><%=d.month%>(<%= d.count %>)</font></a></li>
+                    <%
+                    }
+                });
+              });
+            %>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"gaoqi"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<%- include footer.html %>

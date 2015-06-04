@@ -1,0 +1,41 @@
+<%- include header.html %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <div class="page-header">
+              <h3><%=series.name%></h3>
+            </div>
+            <p class="lead"><%= series.desc%></p>
+            <%
+            if(series.posts.length != 0){
+            %>
+                <ol>
+            <%
+                series.posts.forEach(function(post, index){
+                    if(post.id){
+                    %>
+                    <li><a href="/p/<%=post.id%>" target="_blank" ><%=post.name %></a></li>
+                    <%
+                    }else{
+                    %>
+                    <li><%=post.name %></li>
+                    <%
+                    }
+                });
+            %>
+                </ol>
+            <%
+            }else{
+            %>
+                  <p>
+                        <h4><b>暂时还没有文章</b></h4>
+                  </p>
+            <%
+            }
+            %>
+            <p><span class="glyphicon glyphicon-file"><%=series.category%></span></p>
+            <p><span class="glyphicon glyphicon-use"><%=series.author%></span></p>
+        </div>
+    </div>
+</div>
+<%- include footer.html %>

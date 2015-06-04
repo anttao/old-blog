@@ -1,0 +1,45 @@
+<%- include header.html %>
+<div class="container">
+    <ul class="list-unstyled article-content">
+        <% var lastYear = 0 %>
+        <% var list = {
+        year: [],
+        month: []
+        } %>
+        <% posts.forEach(function (post, index) {
+        if (lastYear != post.time.year) {
+        list.year.push(post.time.year);
+        lastYear = post.time.year
+        }
+        if(list.month.length == 0 && post.name == user.name){
+        list.month.push({name:post.name, year:post.time.year, month: post.time.month, count: 1});
+        }else{
+        var exsist = false;
+        list.month.forEach(function(d, index){
+        if(d.month == post.time.month && post.name == user.name){
+        d.count +=1;
+        exsist = true;
+        }
+        });
+        if(!exsist && post.name == user.name){
+        list.month.push({name:post.name, year:post.time.year, month: post.time.month, count: 1});
+        }
+        }
+        });
+        list.year.forEach(function(y, index){
+        %>
+        <li><h3><%= y %></h3></li>
+        <%
+        list.month.forEach(function(d, index){
+        if(d.year == y){
+        %>
+        <li><time><%= d.month %></time></li>
+        <li><a href="/arc/<%= d.month %>"><%= d.count %> 篇</a></li>
+        <%
+        }
+        });
+        });
+        %>
+    </ul>
+</div>
+<%- include footer.html %>
